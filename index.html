@@ -130,7 +130,7 @@
           <div id="qrcode"></div>
           <div>
             <strong>Scannen & informieren</strong>
-            <p class="muted">Dieser QR‑Code enthält den Link zu dieser Seite (<span id="pageUrl"></span>) – oder eine Wunsch‑URL über den <code>?link=</code>-Parameter.</p>
+            <p class="muted">Dieser QR‑Code führt direkt zu unserer Seite: <span id="pageUrl"></span></p>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
               <button class="btn secondary" onclick="downloadQR()">QR-Code herunterladen</button>
               <button class="btn secondary" onclick="copyUrl()">Link kopieren</button>
@@ -203,10 +203,7 @@ t.prototype={addData:function(o){this.dataList.push(new n(o))},isDark:function(o
 o.QRCode=t,o.QRErrorCorrectLevel=e}(window);
 </script>
   <script>
-    const pageNow = window.location.href.split('#')[0];
-    const urlParam = new URLSearchParams(location.search).get('link');
-    const qrTarget = urlParam ? decodeURIComponent(urlParam) : pageNow;
-
+    const qrTarget = "https://tasci808ditib.github.io/DITIB-Fatih-Moschee-Spendenaktion/";
     document.getElementById('pageUrl').textContent = qrTarget;
     document.getElementById('pageUrl2').textContent = qrTarget;
     document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -251,13 +248,6 @@ o.QRCode=t,o.QRErrorCorrectLevel=e}(window);
       window.print();
       setTimeout(()=>{ if(s) s.remove(); }, 500);
     }
-
-    const iban = document.getElementById('ibanText');
-    if(iban){ iban.style.cursor='pointer'; iban.title='Klicken zum Kopieren';
-      iban.addEventListener('click',()=>{navigator.clipboard.writeText(iban.textContent.trim()); alert('IBAN kopiert');}) }
-    const pp = document.getElementById('ppText');
-    if(pp){ pp.style.cursor='pointer'; pp.title='Klicken zum Kopieren';
-      pp.addEventListener('click',()=>{navigator.clipboard.writeText(pp.textContent.trim()); alert('PayPal kopiert');}) }
   </script>
 </body>
 </html>
